@@ -10,6 +10,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <syslog.h>
+#include <cstdio>
+#include <cstdlib>
 
 int daemoize(const char* pname, int facility) {
     pid_t pid;
