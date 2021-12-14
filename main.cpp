@@ -103,6 +103,10 @@ void* serve(void* arg) {
         if (file_requested == "/") {
             file_requested = "/index.html";
         }
+        int idx = 0;
+        if ( std::string::npos != (idx = file_requested.find('?'))) {
+            file_requested = file_requested.substr(0, idx);
+        }
         std::string file_to_send = dir + file_requested;
         if ( stat(file_to_send.c_str(), &s) == 0 ) {
             OK_200 += "Conent-Length: ";
