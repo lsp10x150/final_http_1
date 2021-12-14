@@ -1,4 +1,3 @@
-#include <iostream>
 #include <getopt.h>
 #include <unistd.h>
 #include <pthread.h>
@@ -12,6 +11,7 @@
 #include <syslog.h>
 #include <cstdio>
 #include <cstdlib>
+#include <string>
 
 int daemoize(const char* pname, int facility) {
     pid_t pid;
