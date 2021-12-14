@@ -72,7 +72,7 @@ std::vector<std::string> tokenize(const char *str) {
 void* serve(void* arg) {
     std::string OK_200 = "HTTP/1.0 200 OK\r\n";
     char times[256] = {0};
-    time_t t = time(nullptr);
+    time_t t = time(0);
     OK_200 += "Date: ";
     std::string date = ctime_r(&t, times);
     if (*date.rbegin() == '\n')
@@ -117,7 +117,7 @@ void* serve(void* arg) {
                     tot_size -= how_much;
                     write(fd, buf, how_much);
                 }
-                write(fd, "\r\n", 2);
+//                write(fd, "\r\n", 2);
             }
         } else {
             perror("stat");
